@@ -9,3 +9,12 @@
     font-weight: 400;
     font-style: normal;
 }
+
+/* You can customize the background and text styling for both loading and hello message */
+#loadingSpinner {
+    background-color: white;
+}
+#helloMessage {
+    background-color: white;
+    color: #333;
+}

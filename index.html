@@ -41,10 +41,12 @@
 </head>
 
 <body class="font-raleway">
+
     <!-- header -->
     <header id="Home">
+        
         <!-- navigation bar -->
-        <div class="navbar bg-base-100 w-4/5 mx-auto mt-10">
+        <div class="navbar bg-base-100 w-4/5 mx-auto mt-10 relative z-20">
             <div class="navbar-start">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -55,10 +57,10 @@
                         </svg>
                     </div>
                     <ul tabindex="0"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-[#030712] text-lg">
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[100] mt-3 w-52 p-2 shadow text-[#030712] text-lg">
                         <li><a href="#Home">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Destination</a></li>
+                        <li><a href="#footer">About</a></li>
+                        <li><a href="#booking">Destination</a></li>
                         <li><a href="#">Search</a></li>
                     </ul>
                 </div>
@@ -66,10 +68,27 @@
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 text-textP text-lg">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Destination</a></li>
-                    <li><a href="#">Search</a></li>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#footer">About</a></li>
+                    <li><a href="#booking">Destination</a></li>
+                    <!-- Search Menu -->
+                    <li class="dropdown relative">
+                        <a href="#" id="searchToggle" class="flex items-center">
+                            Search
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+                        <!-- Search Box (Initially hidden) -->
+                        <div id="searchBox"
+                            class="hidden mt-3 w-52 p-2 shadow text-[#030712] text-lg z-[100] absolute bg-base-100 rounded-box">
+                            <label for="searchInput" class="sr-only">Search</label>
+                            <input type="text" id="searchInput" class="input input-bordered w-full"
+                                placeholder="Search...">
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="navbar-end">
@@ -85,6 +104,9 @@
                 </a>
             </div>
         </div>
+
+
+
         <!-- navigation bar end -->
     </header>
     <!-- banner section -->
@@ -146,6 +168,32 @@
                 </div>
             </div>
         </section>
+
+        <!-- welconeme section -->
+         <section>
+                <!-- welcome -->
+        <!-- Loading Animation -->
+        <div id="loadingSpinner" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+            <div class="spinner-border animate-spin inline-block w-12 h-12 border-4 border-t-transparent border-blue-600 rounded-full"
+                role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <!-- Hello Message (Displayed after loading) -->
+        <div id="helloMessage" class="fixed inset-0 flex items-center justify-center bg-white z-50 hidden">
+            <h1 class="text-6xl font-bold text-gray-800">Hello :)</h1>
+        </div>
+
+        <!-- Your Main Content -->
+        <div id="mainContent" class="hidden">
+            <div class="navbar bg-base-100 w-4/5 mx-auto mt-10 relative z-10">
+                <!-- Your navbar and content here -->
+            </div>
+        </div>
+
+
+         </section>
 
         <!-- Offers Section -->
         <section class="my-24 text-center">
@@ -247,7 +295,8 @@
                                 <p class="row-span-1 text-xs ml-4">Coach-009-WEB ! AC_Business</p>
                             </div>
                             <button class="w-full md:w-auto">
-                                <a href="#" class="btn btn-success bg-secondary bg-opacity-10 items-center text-secondary">
+                                <a href="#"
+                                    class="btn btn-success bg-secondary bg-opacity-10 items-center text-secondary">
                                     <img src="./images/seat-green.png" alt="Bus Icon" class="">
                                     <span>40 seats left</span>
                                 </a>
@@ -255,7 +304,7 @@
                         </div>
                         <div
                             class="bg-[#F7F8F8] w-full h-[200px] flex items-center rounded-lg overflow-x-auto mt-4 md:mt-0 p-5">
-                            <table class="table w-full">   
+                            <table class="table w-full">
                                 <!-- row 1 -->
                                 <tr class="text-left border-dashed border-b-2 border-gray-500">
                                     <td>Route</td>
@@ -380,47 +429,29 @@
                         <div class="w-full md:w-1/2 pl-0 md:pl-4 mt-4 md:mt-0 p-4 md:p-6 rounded-lg shadow-lg">
                             <div class="bg-gray-50 p-4 rounded-lg mb-4 shadow-md">
                                 <h2 class="text-lg font-semibold text-gray-800 mb-10">Select Your Seat</h2>
-                                <!-- Seat Summary -->
+
+                                <!-- Headers for Seat Summary -->
                                 <div class="flex flex-wrap items-center justify-between mb-2">
-                                    <span class="text-gray-600 font-semibold">Seat <span
-                                            class="text-green-500 font-bold px-2 py-0.5 rounded-full bg-green-100">2</span></span>
+                                    <span class="text-gray-600 font-semibold">Seat</span>
                                     <span class="text-gray-600 font-semibold">Class</span>
                                     <span class="text-gray-600 font-semibold">Price</span>
                                 </div>
                                 <div class="border-t border-gray-300 mb-4"></div>
 
-                                <div class="flex flex-wrap justify-between items-center mb-2">
-                                    <span class="text-gray-800">C2</span>
-                                    <span class="text-gray-600">Economy</span>
-                                    <span class="text-gray-800">550</span>
-                                </div>
-                                <div class="flex flex-wrap justify-between items-center mb-2">
-                                    <span class="text-gray-800">C3</span>
-                                    <span class="text-gray-600">Economy</span>
-                                    <span class="text-gray-800">550</span>
+                                <!-- Dynamic Seat Summary Section -->
+                                <div id="seatSummary">
+                                    <!-- Selected seats will be displayed here -->
                                 </div>
 
+                                <!-- Total Price Section -->
                                 <div class="border-t border-gray-300 my-4"></div>
-
                                 <div class="flex flex-wrap justify-between mb-4">
                                     <span class="text-gray-600 font-semibold">Total Price</span>
-                                    <span class="text-gray-800 font-semibold">BDT 1100</span>
-                                </div>
-
-                                <div class="flex flex-col sm:flex-row items-center mb-4">
-                                    <input type="text" placeholder="Have any coupon?"
-                                        class="w-full sm:flex-grow border border-gray-300 rounded-md sm:rounded-l-md sm:rounded-r-none px-3 py-2 focus:outline-none focus:border-green-500 mb-2 sm:mb-0">
-                                    <button
-                                        class="w-full sm:w-auto bg-green-500 text-white px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-md font-semibold focus:outline-none hover:bg-green-600">Apply</button>
-                                </div>
-
-                                <div class="flex flex-wrap justify-between">
-                                    <span class="text-gray-600 font-semibold">Grand Total</span>
-                                    <span class="text-gray-800 font-semibold">BDT 1100</span>
+                                    <span id="totalPrice" class="text-gray-800 font-semibold">BDT 0</span>
                                 </div>
                             </div>
 
-                            <!-- Passenger Details Form -->
+                            <!-- Passenger Details Form (unchanged) -->
                             <div class="space-y-4">
                                 <input type="text" placeholder="Enter your name"
                                     class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-green-500"
@@ -431,11 +462,9 @@
                                 <input type="email" placeholder="Enter your email id"
                                     class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-green-500">
 
-                                <!-- Next Button -->
                                 <button onclick="bookSuccess()"
                                     class="w-full bg-green-500 text-white py-2 rounded-md font-semibold focus:outline-none hover:bg-green-600">Next</button>
 
-                                <!-- Terms and Conditions -->
                                 <div
                                     class="flex flex-col sm:flex-row justify-between text-sm text-gray-500 mt-4 space-y-2 sm:space-y-0">
                                     <a href="#" class="hover:underline">Terms and Conditions</a>
@@ -443,6 +472,8 @@
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
